@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myNotesFragment">
+
+    <fragment
+        android:id="@+id/myNotesFragment"
+        android:name="com.mynotess21.mynotes.ui.MyNotesFragment"
+        android:label="MyNotesFragment" >
+        <action
+            android:id="@+id/action_myNotesFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_myNotesFragment_to_updateNoteFragment"
+            app:destination="@id/updateNoteFragment" />
+        <action
+            android:id="@+id/action_myNotesFragment_to_viewNoteFragment"
+            app:destination="@id/viewNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.mynotess21.mynotes.ui.AddNoteFragment"
+        android:label="AddNoteFragment" />
+    <fragment
+        android:id="@+id/updateNoteFragment"
+        android:name="com.mynotess21.mynotes.ui.UpdateNoteFragment"
+        android:label="UpdateNoteFragment" />
+    <fragment
+        android:id="@+id/viewNoteFragment"
+        android:name="com.mynotess21.mynotes.ui.ViewNoteFragment"
+        android:label="ViewNoteFragment" />
+</navigation>

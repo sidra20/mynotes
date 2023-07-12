@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "My Notes"
 include ':app'
+include ':core'
+include ':local_data_source'
+include ':network_data_source'
+include ':service'
