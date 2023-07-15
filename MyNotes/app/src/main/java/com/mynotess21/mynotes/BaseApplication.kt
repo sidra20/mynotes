@@ -16,11 +16,15 @@ class BaseApplication : Application() {
 
         startKoin {
             androidContext(this@BaseApplication)
-            modules(networkModule,
-            localDataModule,
-            serviceModule,
-            databaseModule,
-            viewModelModule)
+            modules(
+                listOf(
+                    networkModule,
+                    localDataModule,
+                    serviceModule,
+                    databaseModule,
+                    viewModelModule
+                )
+            )
         }
 
     }

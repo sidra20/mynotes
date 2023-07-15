@@ -1,31 +1,32 @@
 package com.mynotess21.service
 
 import androidx.lifecycle.LiveData
+import com.mynotess21.core.iLocalData.INoteDataSource
 import com.mynotess21.core.iService.INoteService
 import com.mynotess21.core.models.Note
 
-class NoteServiceImpl(private val noteLocalDataImpl: NoteServiceImpl) : INoteService {
+class NoteServiceImpl(private val noteLocalDataSource: INoteDataSource ) : INoteService {
     override suspend fun insertNote(note: Note) {
-        noteLocalDataImpl.insertNote(note)
+        noteLocalDataSource.insertNote(note)
     }
 
     override suspend fun deleteNote(note: Note) {
-        noteLocalDataImpl.deleteNote(note)
+        noteLocalDataSource.deleteNote(note)
     }
 
     override suspend fun updateNote(note: Note) {
-        noteLocalDataImpl.updateNote(note)
+        noteLocalDataSource.updateNote(note)
     }
 
     override suspend fun getNote(id: Int): Note? {
-        return noteLocalDataImpl.getNote(id)
+        return noteLocalDataSource.getNote(id)
     }
 
     override suspend fun deleteAllNotes() {
-        noteLocalDataImpl.deleteAllNotes()
+        noteLocalDataSource.deleteAllNotes()
     }
 
     override fun getAllNotes(): LiveData<List<Note>> {
-        return noteLocalDataImpl.getAllNotes()
+        return noteLocalDataSource.getAllNotes()
     }
 }

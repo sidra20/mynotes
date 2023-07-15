@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Notes</string>
+    <string name="screens_remaining">Screens Remaining</string>
+    <string name="my_note_pad_is_very_effciient_and_fast">my note pad is very effciient and fast.</string>
+    <string name="july_6_2023">July 6, 2023</string>
+    <string name="_12_46_pm">12:46 PM</string>
+    <string name="search_notes">Search notes</string>
 </resources>

@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mynotess21.mynotes.viewmodel.NotesViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
+    android:id="@+id/parent"
+    android:background="@color/dark_grey"
     android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideliveV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_10sdp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideliveV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_15sdp"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        app:layout_constraintStart_toStartOf="@id/guideliveV1"
+        app:layout_constraintEnd_toEndOf="@id/guideliveV2"
+        app:layout_constraintTop_toTopOf="@id/guidelineH1"
+        android:hint="@string/search_notes"
+        android:background="@drawable/curve_border"
+        android:backgroundTint="@color/theme_grey"
+        android:elevation="@dimen/_4sdp"
+        android:inputType="text"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColorHint="@color/light_grey"
+        android:id="@+id/searchNotes"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/guideliveV1"
+        app:layout_constraintEnd_toEndOf="@id/guideliveV2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchNotes"
+        android:paddingBottom="@dimen/_8sdp"
+        tools:itemCount="5"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:listitem="@layout/item_note"
+        android:id="@+id/notesRv"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:src="@drawable/ad_icon"
+        android:background="@color/purple"
+        android:backgroundTint="@color/purple"
+        app:rippleColor="@color/theme_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideliveV2"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/floatAdd"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
