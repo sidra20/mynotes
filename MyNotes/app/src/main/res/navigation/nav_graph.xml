@@ -25,9 +25,17 @@
     <fragment
         android:id="@+id/updateNoteFragment"
         android:name="com.mynotess21.mynotes.ui.UpdateNoteFragment"
-        android:label="UpdateNoteFragment" />
+        android:label="UpdateNoteFragment" >
+        <argument
+            android:name="noteitem"
+            app:argType="com.mynotess21.core.models.Note" />
+    </fragment>
     <fragment
         android:id="@+id/viewNoteFragment"
         android:name="com.mynotess21.mynotes.ui.ViewNoteFragment"
-        android:label="ViewNoteFragment" />
+        android:label="ViewNoteFragment" >
+        <argument
+            android:name="note"
+            app:argType="com.mynotess21.core.models.Note" />
+    </fragment>
 </navigation>

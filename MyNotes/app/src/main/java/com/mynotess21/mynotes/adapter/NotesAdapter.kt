@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mynotess21.core.models.Note
 import com.mynotess21.mynotes.databinding.ItemNoteBinding
 
-class NotesAdapter : RecyclerView.Adapter<NotesAdapter.MyViewHolder>(){
+class NotesAdapter (private val listener : NotesListener) : RecyclerView.Adapter<NotesAdapter.MyViewHolder>(){
     private val arrayList:ArrayList<Note> = ArrayList()
 
 
@@ -23,6 +23,7 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.MyViewHolder>(){
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val note = arrayList.get(position)
         holder.binding.model = note
+        holder.binding.listener = listener
     }
 
     fun updateList(new:List<Note>)
@@ -33,4 +34,9 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.MyViewHolder>(){
     }
     class MyViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root)
 
+    interface NotesListener{
+        fun deleteNote(note: Note)
+        fun editNote(note: Note)
+        fun viewNote(note: Note)
+    }
 }

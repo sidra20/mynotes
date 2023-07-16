@@ -55,4 +55,18 @@ class NotesViewModel(private val iNoteService: INoteService) : ViewModel() {
           insertNote(Note(title = title, NoteDesc = noteDes, date = currentDate, time = currentTime))
           Log.d("insert", "createNote: $currentDate  $currentTime " )
      }
+
+     fun editNote(){
+          val title = title.value.toString()
+          val noteDes = note.value.toString()
+          val id = noteId.value
+          updateNote(Note(id=id,title=title, NoteDesc = noteDes))
+     }
+
+     fun setArguments(notes: Note){
+          noteId.value = notes.id?.toInt()
+          title.value = notes.title
+          note.value = notes.NoteDesc
+     }
+
 }

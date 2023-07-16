@@ -5,12 +5,16 @@
         <variable
         name="model"
         type="com.mynotess21.core.models.Note" />
+        <variable
+            name="listener"
+            type="com.mynotess21.mynotes.adapter.NotesAdapter.NotesListener" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardUseCompatPadding="true"
+        android:onClick="@{()->listener.viewNote(model)}"
         app:cardElevation="@dimen/_1sdp"
         app:cardBackgroundColor="@color/theme_dark_grey"
         >
@@ -65,6 +69,28 @@
                 android:textColor="@color/light_grey"
                 android:id="@+id/time"
                 android:textSize="@dimen/_9ssp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit_icon"
+                app:layout_constraintBottom_toBottomOf="@id/delete"
+                app:layout_constraintTop_toTopOf="@id/delete"
+                app:layout_constraintEnd_toStartOf="@id/delete"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:id="@+id/edit"
+                android:onClick="@{()->listener.editNote(model)}"
+                app:tint="@color/light_grey_shade" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/delete"
+                android:onClick="@{()->listener.deleteNote(model)}"
+                app:tint="@color/light_grey_shade" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
