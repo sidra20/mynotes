@@ -23,7 +23,6 @@ class NotesViewModel(private val iNoteService: INoteService) : ViewModel() {
      val note = MutableLiveData<String>()
 
      val getMyNotes = iNoteService.getAllNotes()
-
      init {
 
      }
@@ -43,7 +42,9 @@ class NotesViewModel(private val iNoteService: INoteService) : ViewModel() {
      fun getNote(id:Int) = viewModelScope.launch {
           iNoteService.getNote(id)
      }
-
+     fun deleteSelectedNotes(notes:List<Note>) = viewModelScope.launch {
+          iNoteService.deleteSelectedNotes(notes)
+     }
      fun createNote(){
           val title = title.value.toString()
           val noteDes = note.value.toString()

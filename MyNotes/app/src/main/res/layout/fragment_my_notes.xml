@@ -43,6 +43,7 @@
         android:background="@drawable/curve_border"
         android:backgroundTint="@color/theme_grey"
         android:elevation="@dimen/_4sdp"
+        android:imeOptions="actionSearch"
         android:inputType="text"
         android:layout_marginHorizontal="@dimen/_5sdp"
         android:paddingHorizontal="@dimen/_8sdp"

@@ -26,6 +26,10 @@ class NoteServiceImpl(private val noteLocalDataSource: INoteDataSource ) : INote
         noteLocalDataSource.deleteAllNotes()
     }
 
+    override suspend fun deleteSelectedNotes(notes: List<Note>) {
+        noteLocalDataSource.deleteSelectedNotes(notes)
+    }
+
     override fun getAllNotes(): LiveData<List<Note>> {
         return noteLocalDataSource.getAllNotes()
     }

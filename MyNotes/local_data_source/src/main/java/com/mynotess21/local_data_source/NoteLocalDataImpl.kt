@@ -26,6 +26,10 @@ class NoteLocalDataImpl(private val noteDao: NoteDao) : INoteDataSource {
         noteDao.deleteAllNotes()
     }
 
+    override suspend fun deleteSelectedNotes(notes: List<Note>) {
+        noteDao.deleteSelectedNotes(notes)
+    }
+
     override fun getAllNotes(): LiveData<List<Note>> {
         return noteDao.getAllNotes()
     }

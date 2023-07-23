@@ -17,4 +17,5 @@ data class Note(
     var NoteDesc:String,
     var date:String?=null,
     var time:String?=null,
+    var isChecked:Boolean = false
 ):Parcelable

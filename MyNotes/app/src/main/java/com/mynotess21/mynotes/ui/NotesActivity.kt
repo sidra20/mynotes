@@ -1,6 +1,7 @@
 package com.mynotess21.mynotes.ui
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,7 +14,6 @@ class NotesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_notes)
         val navHost = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHost.navController
-
 
     }
 }

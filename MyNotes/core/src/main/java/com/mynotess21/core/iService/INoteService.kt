@@ -9,5 +9,7 @@ interface INoteService {
     suspend fun updateNote(note: Note)
     suspend fun getNote(id:Int) : Note?
     suspend fun deleteAllNotes()
+    suspend fun deleteSelectedNotes(notes:List<Note>)
+
     fun getAllNotes() : LiveData<List<Note>>
 }
