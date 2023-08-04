@@ -21,6 +21,8 @@ class NotesViewModel(private val iNoteService: INoteService) : ViewModel() {
      val title = MutableLiveData<String>()
      val noteId = MutableLiveData<Int>()
      val note = MutableLiveData<String>()
+     val noteDate = MutableLiveData<String?>()
+     val noteTime = MutableLiveData<String?>()
 
      val getMyNotes = iNoteService.getAllNotes()
      init {
@@ -68,6 +70,8 @@ class NotesViewModel(private val iNoteService: INoteService) : ViewModel() {
           noteId.value = notes.id?.toInt()
           title.value = notes.title
           note.value = notes.NoteDesc
+          noteDate.value = notes.date
+          noteTime.value = notes.time
      }
 
 }

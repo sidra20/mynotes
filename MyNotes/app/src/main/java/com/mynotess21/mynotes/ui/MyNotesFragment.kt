@@ -96,7 +96,7 @@ class MyNotesFragment : Fragment(), NotesAdapter.NotesListener {
                         it.time?.contains(text.toString(), ignoreCase = true) ?: false
 
             }
-            notesAdapter.filteredList(filteredList as ArrayList<Note>)
+            notesAdapter.updateList(filteredList)
         }
 
         return binding.root
@@ -124,20 +124,5 @@ class MyNotesFragment : Fragment(), NotesAdapter.NotesListener {
         findNavController().navigate(action)
     }
 
-    private fun filter(text: String) {
-        val filteredList = ArrayList<Note>()
-        for (item in notes) {
-            if (item.title.toLowerCase().contains(text.toLowerCase()) ||
-                item.NoteDesc.toLowerCase().contains(text.toLowerCase())
-            ) {
-                filteredList.add(item)
-            }
-        }
-        if (filteredList.isEmpty()) {
-            Toast.makeText(context, "No data found", Toast.LENGTH_SHORT).show()
-        } else {
-            notesAdapter.filteredList(filteredList)
-        }
-    }
 
 }

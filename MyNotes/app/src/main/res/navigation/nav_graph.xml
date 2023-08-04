@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/myNotesFragment">
+    app:startDestination="@id/fetchDataFragment">
 
     <fragment
         android:id="@+id/myNotesFragment"
@@ -38,4 +38,8 @@
             android:name="note"
             app:argType="com.mynotess21.core.models.Note" />
     </fragment>
+    <fragment
+        android:id="@+id/fetchDataFragment"
+        android:name="com.mynotess21.mynotes.ui.firebase_crud.FetchDataFragment"
+        android:label="FetchDataFragment" />
 </navigation>
