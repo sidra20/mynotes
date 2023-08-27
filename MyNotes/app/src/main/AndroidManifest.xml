@@ -16,10 +16,10 @@
         <activity android:name=".ui.authentication.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.NotesActivity"
+        <activity android:name=".ui.authentication.LoginActivity"
             android:exported="false"/>
         <activity
-            android:name=".ui.authentication.LoginActivity"
+            android:name=".ui.NotesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

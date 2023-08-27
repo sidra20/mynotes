@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mynotess21.mynotes.viewmodel.ProductViewModel" />
+        <import type="com.mynotess21.mynotes.other.BindingsKt"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_15ssp"
+        android:text="Add Product"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="product name"
+        android:inputType="text"
+        android:text="@={viewModel._pname}"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/addProductName"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="product price"
+        android:inputType="number"
+        android:text="@={BindingsKt.convertIntegerToString(viewModel._price)}"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/addProductPrice"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="product quantity"
+        android:inputType="number"
+        android:text="@={BindingsKt.convertIntegerToString(viewModel._qty)}"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/addProductQty"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/selectImage"/>
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"
+        android:id="@+id/selectedImageView"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Product"
+        android:onClick="@{()->viewModel.insertProduct()}"
+        android:id="@+id/addProductBtn"
+        android:layout_marginTop="@dimen/_15sdp"/>
+
+</LinearLayout>
+
+</layout>

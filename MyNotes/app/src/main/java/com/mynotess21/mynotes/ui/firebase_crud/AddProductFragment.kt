@@ -23,34 +23,38 @@ import com.google.firebase.ktx.Firebase
 import com.mynotess21.core.models.Note
 import com.mynotess21.mynotes.R
 import com.mynotess21.mynotes.adapter.NotesAdapter
+import com.mynotess21.mynotes.databinding.FragmentAddProductBinding
 import com.mynotess21.mynotes.databinding.FragmentFetchDataBinding
 import com.mynotess21.mynotes.databinding.FragmentMyNotesBinding
 import com.mynotess21.mynotes.ui.authentication.LoginActivity
 import com.mynotess21.mynotes.viewmodel.NotesViewModel
+import com.mynotess21.mynotes.viewmodel.ProductViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FetchDataFragment : Fragment() {
-    private lateinit var binding: FragmentFetchDataBinding
+class AddProductFragment : Fragment() {
+    private lateinit var binding:FragmentAddProductBinding
+    private val productViewModel : ProductViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_fetch_data, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_product, container, false)
+        binding.viewModel=productViewModel
+        binding.lifecycleOwner=viewLifecycleOwner
 
-        binding.floatAdd.setOnClickListener {
+        productViewModel.message.observe(viewLifecycleOwner) {
+            if(it!=null){
+                Toast.makeText(context, it+"", Toast.LENGTH_SHORT).show()
+
+            }
         }
 
 
-//        val user = Firebase.auth.currentUser
-//        binding.name.text = user?.displayName
-//        binding.signout.setOnClickListener {
-//            Firebase.auth.signOut()
-//            val i = Intent(requireActivity(), LoginActivity::class.java)
-//            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            startActivity(i)
-//        }
+
+
 
         return binding.root
     }
@@ -59,6 +63,10 @@ class FetchDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+      //productViewModel.emptyMessage()
+    }
 
 
 
